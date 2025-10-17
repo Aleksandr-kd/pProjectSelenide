@@ -20,7 +20,7 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 
-    systemProperty("selenide.holdBrowserOpen", "true")
+//    systemProperty("selenide.holdBrowserOpen", "true")
     systemProperty("selenide.headless", "false")
     systemProperty("selenide.browser", "chrome")
     systemProperty("selenide.timeout", "10000")
