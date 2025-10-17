@@ -10,12 +10,18 @@ repositories {
 }
 
 dependencies {
-    testImplementation(
-        "com.codeborne:selenide:6.3.5",
-        "org.junit.jupiter:junit-jupiter:5.8.2"
-    )
+    testImplementation(platform("org.junit:junit-bom:5.8.1"))
+    testImplementation("com.codeborne:selenide:6.19.1")
+    testImplementation("org.junit.jupiter:junit-jupiter")
+
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test {
     useJUnitPlatform()
+
+    systemProperty("selenide.holdBrowserOpen", "true")
+    systemProperty("selenide.headless", "false")
+    systemProperty("selenide.browser", "chrome")
+    systemProperty("selenide.timeout", "10000")
 }
