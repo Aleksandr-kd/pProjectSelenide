@@ -1,5 +1,6 @@
+package gitHub;
+
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -14,9 +15,6 @@ public class GitHubTests {
 
         $(By.xpath("//span[@class='flex-1']")).click();
         $(By.xpath("//input[@id='query-builder-test']")).setValue("selenide").pressEnter();
-//        search.click();
-//        search.setValue("selenide").pressEnter();
-
         $(By.xpath("//a[@href='/selenide/selenide']"))
                 .shouldHave(Condition.text("selenide/selenide"));
 
