@@ -52,25 +52,25 @@ public class Snippets {
 
     void selectors_examples() {
         $("div").click();
-        element("div").click();
+        element("div").click();    //в котлине $ зарезервирован, поэтому используют element или '$'
 
         $("div", 2).click(); // the third div
 
-        $x("//h1/div").click();
+        $x("//h1/div").click();//в консоле можно так искать $x("//div")
         $(byXpath("//h1/div")).click();
 
         $(byText("full text")).click();
         $(withText("ull tex")).click();
 
-        $(byTagAndText("div", "full text"));
+        $(byTagAndText("div", "full text")); //если текст общий, то ищем по тэгу и тексту
         $(withTagAndText("div", "ull text"));
 
         $("").parent();
         $("").sibling(1);
         $("").preceding(1);
         $("").closest("div");
-        $("").ancestor("div"); // the same as closest
-        $("div:last-child");
+        $("").ancestor("div"); // the same as closest. вернутся к верхнему
+        $("div:last-child"); //взять последнего ребенка
 
         $("div").$("h1").find(byText("abc")).click();
         // very optional
@@ -91,9 +91,9 @@ public class Snippets {
 
         $("").hover();
 
-        $("").setValue("text");
-        $("").append("text");
-        $("").clear();
+        $("").setValue("text"); // очистит поле и добавит
+        $("").append("text");   // добавит в конец
+        $("").clear();          // не всегда срабатывает
         $("").setValue(""); // clear
 
         $("div").sendKeys("c"); // hotkey c on element
@@ -106,7 +106,7 @@ public class Snippets {
         $("").pressTab();
 
 
-        // complex actions with keybord and mouse, example
+        // complex actions with keybord and mouse, example. для конкретной проверки можно увеличить. по умол. 4 сек.
         actions().moveToElement($("div")).clickAndHold().moveByOffset(300, 200).release().perform();
 
         // old html actions don't work with many modern frameworks
@@ -137,10 +137,10 @@ public class Snippets {
         $("").shouldHave(exactText("abc"));
         $("").shouldHave(textCaseSensitive("abc"));
         $("").shouldHave(exactTextCaseSensitive("abc"));
-        $("").should(matchText("[0-9]abc$"));
+        $("").should(matchText("[0-9]abc$"));   //поверка текста на определенные символы
 
         $("").shouldHave(cssClass("red"));
-        $("").shouldHave(cssValue("font-size", "12"));
+        $("").shouldHave(cssValue("font-size", "12")); //можно проверять CSS стили
 
         $("").shouldHave(value("25"));
         $("").shouldHave(exactValue("25"));
@@ -148,14 +148,15 @@ public class Snippets {
 
         $("").shouldHave(attribute("disabled"));
         $("").shouldHave(attribute("name", "example"));
-        $("").shouldHave(attributeMatching("name", "[0-9]abc$"));
+        $("").shouldHave(attributeMatching("name", "[0-9]abc$")); //поверка текста на определенные символы
 
-        $("").shouldBe(checked); // for checkboxes
+        $("").shouldBe(checked); // for checkboxes если нужно проверить что выключен тогда shouldNotBe(checked)
 
         // Warning! Only checks if it is in DOM, not if it is visible! You don't need it in most tests!
-        $("").should(exist);
+        $("").should(exist);    // существует ли элемент, если он не видимиы
 
         // Warning! Checks only the "disabled" attribute! Will not work with many modern frameworks
+        //это проверки что кнопка вкл или выкл. не всегда работают. у элемент м.б. просто класс вкл или выкл или по CSS стилю
         $("").shouldBe(disabled);
         $("").shouldBe(enabled);
     }
@@ -194,8 +195,6 @@ public class Snippets {
         $$("").shouldHave(sizeGreaterThanOrEqual(1));
         $$("").shouldHave(sizeLessThan(3));
         $$("").shouldHave(sizeLessThanOrEqual(2));
-
-
     }
 
     void file_operation_examples() throws FileNotFoundException {
