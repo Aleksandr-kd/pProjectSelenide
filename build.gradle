@@ -15,6 +15,7 @@ dependencies {
     testImplementation(
             platform("org.junit:junit-bom:5.8.1"),
             "com.codeborne:selenide:$selenideVersion",
+            "io.github.bonigarcia:webdrivermanager:5.6.3",
             "org.junit.jupiter:junit-jupiter")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -23,8 +24,8 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 
-//    systemProperty("selenide.holdBrowserOpen", "true")
-    systemProperty("selenide.headless", "false")
-    systemProperty("selenide.browser", "chrome")
-    systemProperty("selenide.timeout", "10000")
+////    systemProperty("selenide.holdBrowserOpen", "true")
+//    systemProperty("selenide.headless", "false")
+//    systemProperty("selenide.browser", "chrome")
+//    systemProperty("selenide.timeout", "10000")
 }
