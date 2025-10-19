@@ -12,7 +12,7 @@ public class AutomationPracticeFormTestCase extends TestBase {
         String userSurname = "Affj ddj-df";
         String userEmail = "email@gmail.ru";
         String userNumber = "9991123453";
-        String gender = "Female";
+        String gender = "Male";
         String dayOfBirth = "08";
         String monthOfBirth = "January";
         String yearOfBirth = "1986";
