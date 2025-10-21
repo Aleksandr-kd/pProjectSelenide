@@ -1,7 +1,7 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationResultsModal;
 
@@ -25,6 +25,8 @@ public class RegistrationPage {
             hobbyInput = $("#hobbiesWrapper"),
             pictureInput = $("#uploadPicture");
 
+
+    @Step("Открываем главную страницу")
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text(TITLE_TEXT));
@@ -32,13 +34,14 @@ public class RegistrationPage {
 
         return this;
     }
-
+    @Step("Устанавливаем имя {value}")
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
 
         return this;
     }
 
+    @Step("Устанавливаем фамилию {value}")
     public RegistrationPage setLastName(String value) {
         lastNameInput.setValue(value);
 
