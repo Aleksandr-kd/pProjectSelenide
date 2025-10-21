@@ -1,16 +1,18 @@
-package demoga.pages;
+package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import demoga.pages.components.CalendarComponent;
-import demoga.pages.components.RegistrationResultsModal;
+import pages.components.CalendarComponent;
+import pages.components.RegistrationResultsModal;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
+
 public class RegistrationPage {
+    private static final String TITLE_TEXT = "Student Registration Form";
     private final CalendarComponent calendarComponent = new CalendarComponent();
     private final RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
     private final SelenideElement
@@ -25,7 +27,6 @@ public class RegistrationPage {
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
-        String TITLE_TEXT = "Student Registration Form";
         $(".practice-form-wrapper").shouldHave(text(TITLE_TEXT));
         executeJavaScript("$('#fixedban').remove();$('#adplus-anchor').remove();$('footer').remove();");
 
@@ -68,9 +69,9 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setBirthDate(String day, String month, String year) {
+    public RegistrationPage setBirthDate(String month, String year, String day) {
         dateOfBirthInput.click();
-        calendarComponent.setDate(day, month, year);
+        calendarComponent.setDate(month, year, day);
         return this;
     }
 
@@ -80,7 +81,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage verifyResult(String key, Condition value) {
+    public RegistrationPage verifyResult(String key, String value) {
         registrationResultsModal.verifyResult(key, value);
 
         return this;
