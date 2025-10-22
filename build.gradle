@@ -58,8 +58,8 @@ test {
     jvmArgs = ['-ea', '-Xmx128m', '-XX:+HeapDumpOnOutOfMemoryError']
 }
 
-//task run_tests(type: Test) {
-//    useJUnitPlatform {
-//        includeTags("JenkinsTest")
-//    }
-//}
+task run_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("JenkinsTest")
+    }
+}
