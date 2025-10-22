@@ -37,7 +37,7 @@ public class AutomationPracticeFormTestCase extends TestBase {
                 .setHobby(testData.hobby)
                 .setState(testData.state)
                 .setCity(testData.city)
-                .setPicture(testData.filePath)
+                .setPicture(testData.fileName)
                 .setSubject(testData.subject)
                 .submitForm();
         });
@@ -51,7 +51,7 @@ public class AutomationPracticeFormTestCase extends TestBase {
                 .verifyResult("Date of Birth", testData.dateOfBirth)
                 .verifyResult("Hobbies", testData.hobby)
                 .verifyResult("Subjects", testData.subject)
-                .verifyResult("Picture", testData.filePath)
+                .verifyResult("Picture", testData.fileName)
                 .verifyResult("Address", testData.address)
                 .verifyResult("State and City", testData.state + " " + testData.city)
         ;

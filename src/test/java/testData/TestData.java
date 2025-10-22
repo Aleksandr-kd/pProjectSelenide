@@ -16,7 +16,7 @@ public class TestData {
     public String dateOfBirth = String.format("%s %s,%s", dayMonthYear[0], dayMonthYear[1], dayMonthYear[2]);
     public String userCellNumber = String.valueOf(faker.number().numberBetween(9151111111L, 9269999999L));
     public String hobby = getRandomValue("Sports", "Reading", "Music");
-    public String subject = getRandomValue("Math", "Chemistry", "Physics", "Computer Science", "English", "History");
+    public String subject = getRandomValue("Math", "Chemistry", "Physics", "Computer Science", "Hi");
     public String filePath = "images/test.png";
     public String fileName = "images/File.png";
     public String address = faker.address().fullAddress();

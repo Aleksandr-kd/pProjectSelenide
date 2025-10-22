@@ -123,14 +123,14 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setSubject(String value) {
-        $("#subjectsInput").setValue("" + value.charAt(0));
+        $("#subjectsInput").setValue("" + value.charAt(0)).click();
         $("#react-select-2-option-0").shouldBe(visible).shouldBe(text(value)).click();
 
         return this;
     }
 
     public void submitForm() {
-//        $("#submit").click(); // Doesnt work!!!
-        $("#subjectsInput").pressEnter();
+        $("#submit").click(); // Doesnt work!!!
+//        $("#subjectsInput").pressEnter();
     }
 }
