@@ -48,59 +48,69 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Очищаем поле фамилия {value}")
     public RegistrationPage clearLastName() {
         lastNameInput.clear();
 
         return this;
     }
 
+    @Step("Устанавливаем Email {value}")
     public RegistrationPage setEmail(String value) {
         emailInput.setValue(value);
 
         return this;
     }
 
+    @Step("Устанавливаем пола {value}")
     public RegistrationPage setGender(String value) {
         genderInput.$(byText(value)).click();
 
         return this;
     }
 
+    @Step("Устанавливаем номер телефона {value}")
     public RegistrationPage setPhone(String value) {
         userNumberInput.setValue(value);
 
         return this;
     }
 
+    @Step("Устанавливаем дату рождения {day, month, year}")
     public RegistrationPage setBirthDate(String month, String year, String day) {
         dateOfBirthInput.click();
         calendarComponent.setDate(month, year, day);
         return this;
     }
 
+    @Step("Проверка открытия модального окна")
     public RegistrationPage verifyResultsModalAppears() {
         registrationResultsModal.verifyModalAppears();
 
         return this;
     }
 
+    @Step("Проверка введенного значения при регистрации {key, value}")
     public RegistrationPage verifyResult(String key, String value) {
         registrationResultsModal.verifyResult(key, value);
 
         return this;
     }
 
+    @Step("Устанавливаем хобби {value}")
     public RegistrationPage setHobby(String value) {
         hobbyInput.$(byText(value)).click();
 
         return this;
     }
 
+    @Step("Устанавливаем картинку {value}")
     public RegistrationPage setPicture(String path) {
         pictureInput.uploadFromClasspath(path);
 
         return this;
     }
+
 
     public RegistrationPage checkFormTitle(String value) {
         $("#userForm").parent().$("h5").shouldHave(text(value));
